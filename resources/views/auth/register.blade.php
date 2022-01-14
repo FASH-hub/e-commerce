@@ -15,34 +15,49 @@
                     Registration
                 </h3>
                 <hr>
-                <form>
+                <form action="{{ route('register-user') }}" method="POST">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                    @endif
+
+                    @csrf
 <div class="form-group">
 
     <label for="name">Full Name</label>
     <input type="text" class="form-control" 
-    placeholder="Please enter your full name" name="name" value="">
+    placeholder="Please enter your full name" name="name" value="{{ old('name') }}">
+    <span class="text-danger">@error('name'){{ $message }} @enderror</span>
 
 </div>
+<br>
 
 <div class="form-group">
     
-    <label for="e-mail">E-mail adress</label>
+    <label for="email">E-mail adress</label>
     <input type="text" class="form-control" 
-    placeholder="Please enter your e-mail adress" name="e-mail" value="">
+    placeholder="Please enter your email adress" name="email" value="{{ old('email') }}">
+    <span class="text-danger">@error('email'){{ $message }} @enderror</span>
 
 </div>
+<br>
 
 <div class="form-group">
     
     <label for="password">Password</label>
-    <input type="text" class="form-control" 
+    <input type="password" class="form-control" 
     placeholder="Please enter your password" name="password" value="">
+    <span class="text-danger">@error('password'){{ $message }} @enderror</span>
 
 </div>
-
+<br>
 <div class="form-group">
     <button class="btn btn-block btn-primary" type="submit">register</button>
 </div>
+<br>
+<a href= "login">Have you already user acount? login in here<a>
 
                 </form>
             </div>
