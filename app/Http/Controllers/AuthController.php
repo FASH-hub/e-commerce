@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Session;
+use Illuminate\Support\Facades\Session;
+
 
 class AuthController extends Controller
 {
@@ -57,7 +58,7 @@ class AuthController extends Controller
         if ($user) {
 
             if (Hash::check($request->password, $user->password)) {
-                $request->session()->put('user', $user);
+                $request->session()->put('userId', $user->id);
                 return redirect('userPage');
             } else {
                 return back()->with('fail', 'Unmatched password');
@@ -69,6 +70,20 @@ class AuthController extends Controller
 
     public function welcome()
     {
-        return view('auth.userPage');
+        $data = array();
+        if (Session::has('userId')) {
+            $data = User::where('id', '=', Session::get('userId'))->first();
+        }
+        return view('auth.userPage', compact('data'));
+    }
+
+    public function logout()
+    {
+
+        if (Session::has('userId')) {
+            Session::pull('userId');
+            return  redirect('login');
+        }
+        
     }
 }

@@ -12,9 +12,13 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4" style="margin-top:20px;">
                 <h3>
-                    Thanks for logging in. Welcome to the user page !!
+                    E-COMMERCE
                 </h3>
                 <hr>
+                <br>
+                {{$data->name}}
+                <p> Thanks for logging in. You are all welcome</p>
+                <a href="logout">logout</a>
        
             </div>
         </div>
