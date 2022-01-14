@@ -15,13 +15,21 @@
                     Login
                 </h3>
                 <hr>
-                <form>
+                <form action="{{route('login-user')}}" method="POST">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                    @endif
 
+                    @if(Session::has('fail'))
+                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                    @endif
+                    @csrf
 <div class="form-group">
     
     <label for="email">E-mail adress</label>
     <input type="text" class="form-control" 
-    placeholder="Please enter your e-mail adress" name="email" value="">
+    placeholder="Please enter your e-mail adress" name="email" value="{{old('email')}}">
+    <span class="text-danger">@error('email'){{ $message }} @enderror</span>
 
 </div>
 <br>
@@ -31,6 +39,7 @@
     <label for="password">Password</label>
     <input type="password" class="form-control" 
     placeholder="Please enter your password" name="password" value="">
+    <span class="text-danger">@error('password'){{ $message }} @enderror</span>
 
 </div>
 <br>

@@ -20,3 +20,8 @@ Route::get('/register', [AuthController::class, 'register']);
 
 Route::post('/register-user', [AuthController::class, 'registerUser'])
     ->name('register-user');
+
+Route::post('/login-user', [AuthController::class, 'loginUser'])
+    ->name('login-user');
+
+Route::get('/userPage', [AuthController::class, 'welcome']);
