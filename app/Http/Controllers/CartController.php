@@ -13,4 +13,22 @@ class ContrCarts extends Controller
                              values(?,?,?)', [2, now(), 2]);
         dd($cart);
     }
+
+    public function destroyCartt()
+    {
+        $id = 3;
+        $cart = DB::table('carts')
+        ->where('id', $id)
+            ->delete();
+        dd($cart);
+    }
+
+    public function updateCart()
+    {
+        $id = 7;
+        $newUserId = 5;
+        DB::table('carts')
+        ->where('id', $id)
+            ->update(array('user_id' => $newUserId));
+    }
 }
