@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProdController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,6 @@ Route::post('/login-user', [AuthController::class, 'loginUser'])
 Route::get('/userPage', [AuthController::class, 'welcome'])->middleware('isLoggedIn');
 
 Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/product', [ProdController::class, 'updateProduct']);
+Route::get('/cart', [CartController::class, 'addCart']);

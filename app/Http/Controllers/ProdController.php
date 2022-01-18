@@ -36,5 +36,6 @@ class ProdController extends Controller
         DB::table('products')
         ->where('id', $id)
             ->update(array('price' => $newPrice));
+
     }
 }
