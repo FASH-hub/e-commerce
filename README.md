@@ -1,3 +1,3 @@
 # E-COMMERCE WEBSITE
 
-This e-commerce website is developed through Laravel framework
+This e-commerce website back-end is developed through Laravel framework
