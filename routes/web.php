@@ -32,5 +32,4 @@ Route::get('/userPage', [AuthController::class, 'welcome'])->middleware('isLogge
 
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/product', [ProdController::class, 'updateProduct']);
-Route::get('/cart', [CartController::class, 'addCart']);
+

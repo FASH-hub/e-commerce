@@ -14,12 +14,28 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
-
+   
     public function register()
     {
         return view('auth.register');
     }
 
+    /*
+    * ------------------------------------
+    * Displays all the users registered
+    * ------------------------------------
+    */
+    function displayUsers()
+    {
+        return User::all();
+    }
+
+
+    /*
+    * ------------------------------------------------
+    * creates a new user
+    * ------------------------------------------------
+    */
     public function registerUser(Request $request)
     {
         $request->validate([
@@ -44,6 +60,58 @@ class AuthController extends Controller
     }
 
 
+
+    /**
+     * ----------------------------------
+     * Delete an user from database.
+     * ----------------------------------
+     */
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+
+        $resutl = $user->delete();
+
+        if ($resutl) {
+            return ["member" => "has been deleted"];
+        } else {
+            return ["member" => "couldn't be deleted"];
+        }
+    }
+
+
+
+
+    /*
+    * ------------------------------
+    * Updates the user according to the received id.
+    * ------------------------------
+    */
+
+    public function updateUser(Request $request, $id)
+    {
+
+        $user = User::find($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->role = $request->role;
+
+        $member = $user->save();
+        if ($member) {
+            return ["member" => " updated"];
+        } else {
+            return ["member" => " couldn't be updated"];
+        }
+    }
+
+
+    /*
+    * ------------------------------
+    * Login
+    * ------------------------------
+    */
     public function loginUser(Request $request)
     {
         $request->validate([
@@ -68,6 +136,11 @@ class AuthController extends Controller
         }
     }
 
+    /*
+    * ------------------------------
+    * Displays the welcome 
+    * ------------------------------
+    */
     public function welcome()
     {
         $data = array();
@@ -77,6 +150,11 @@ class AuthController extends Controller
         return view('auth.userPage', compact('data'));
     }
 
+    /*
+    * ------------------------------
+    * logout
+    * ------------------------------
+    */
     public function logout()
     {
 

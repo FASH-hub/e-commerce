@@ -4,32 +4,77 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Cart;
 
 class CartController extends Controller
 {
-    public function addCart()
+
+    /*
+    * ------------------------------
+    * Displays all created carts
+    * ------------------------------
+    */
+    function displayCarts()
     {
-        $cart = DB::insert(
-        'insert into carts(user_id, date, product_id)
-                             values(?,?,?)', [4, now(), 2]);
-        dd($cart);
+        return Cart::all();
     }
 
-    public function destroyCartt()
+
+    /**
+     * ----------------------------------
+     * Creates a new cart in the database.
+     * ----------------------------------
+     */
+    public function addCart(Request $request)
     {
-        $id = 3;
-        $cart = DB::table('carts')
-        ->where('id', $id)
-            ->delete();
-        dd($cart);
+        $cart = new Cart();
+        $cart->user_id = $request->user_id;
+        $cart->product_id = $request->product_id;
+        $result = $cart->save();
+
+        if ($result) {
+            return ["item" => "has been added"];
+        } else {
+            return ["item" => "has not been added"];
+        }
     }
 
-    public function updateCart()
+    /**
+     * ----------------------------------
+     * Delete a cart from database.
+     * ----------------------------------
+     */
+    public function destroyCart($id)
     {
-        $id = 7;
-        $newUserId = 5;
-        DB::table('carts')
-        ->where('id', $id)
-            ->update(array('user_id' => $newUserId));
+        $cart = Cart::find($id);
+        $resutl = $cart->delete();
+
+        if ($resutl) {
+            return ["item" => "has been deleted"];
+        } else {
+            return ["item" => "couldn't be deleted"];
+        }
     }
+
+
+    /**
+     * --------------------------------
+     * Update a cart already in database.
+     * --------------------------------
+     */
+    public function updateCart(Request $request, $id)
+    {
+        $cart = new Cart();
+        $cart = Cart::find($id);
+        $cart->user_id = $request->user_id;
+        $cart->product_id = $request->product_id;
+        $result = $cart->save();
+
+        if ($result) {
+            return ["item" => " updated"];
+        } else {
+            return ["item" => " couldn't be updated"];
+        }
+    }
+
 }
