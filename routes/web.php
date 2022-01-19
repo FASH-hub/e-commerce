@@ -31,5 +31,3 @@ Route::post('/login-user', [AuthController::class, 'loginUser'])
 Route::get('/userPage', [AuthController::class, 'welcome'])->middleware('isLoggedIn');
 
 Route::get('/logout', [AuthController::class, 'logout']);
-
-

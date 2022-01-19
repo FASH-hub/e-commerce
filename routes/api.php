@@ -45,7 +45,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 * ----------------------------------------------------------------
 */
 
-Route::get('/products', [ProdController::class, 'displayProduct']);
+Route::get('/product', [ProdController::class, 'displayProduct']);
 Route::post('/product', [ProdController::class, 'addProduct']);
 Route::patch('/product/{id}', [ProdController::class, 'updateProduct']);
 Route::delete('/product/{id}', [ProdController::class, 'destroyProduct']);
