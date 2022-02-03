@@ -147,7 +147,7 @@ class AuthController extends Controller
         if (Session::has('userId')) {
             $data = User::where('id', '=', Session::get('userId'))->first();
         }
-        return view('auth.userPage', compact('data'));
+        return view('auth.dashboard', compact('data'));
     }
 
     /*

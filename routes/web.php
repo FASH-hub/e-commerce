@@ -16,18 +16,6 @@ use App\Http\Controllers\CartController;
 |
 */
 
-Route::get('/login', [AuthController::class, 'login'])
-->middleware('loggedIn');
-
-Route::get('/register', [AuthController::class, 'register'])
-    ->middleware('loggedIn');
-
-Route::post('/register-user', [AuthController::class, 'registerUser'])
-    ->name('register-user');
-
-Route::post('/login-user', [AuthController::class, 'loginUser'])
-    ->name('login-user');
-
-Route::get('/userPage', [AuthController::class, 'welcome'])->middleware('isLoggedIn');
-
-Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/', function () {
+    return view('auth.dashboard');
+});

@@ -45,10 +45,10 @@ Route::get('/logout', [AuthController::class, 'logout']);
 * ----------------------------------------------------------------
 */
 
-Route::get('/product', [ProdController::class, 'displayProduct']);
-Route::post('/product', [ProdController::class, 'addProduct']);
-Route::patch('/product/{id}', [ProdController::class, 'updateProduct']);
-Route::delete('/product/{id}', [ProdController::class, 'destroyProduct']);
+Route::get('/allProduct', [ProdController::class, 'displayProduct']);
+Route::post('/addProduct', [ProdController::class, 'addProduct']);
+Route::patch('/updateProduct/{id}', [ProdController::class, 'updateProduct']);
+Route::delete('/deleteProduct/{id}', [ProdController::class, 'destroyProduct']);
 
 
 
