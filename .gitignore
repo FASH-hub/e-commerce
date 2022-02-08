@@ -13,14 +13,3 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-.env.examples
-.env.example
-.editorconfig
-.gitattributes
-.styleci.yml
-artisan
-composer.lock
-composer.json
-docker-compose.yml
-package.json
-phpunit.xml
