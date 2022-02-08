@@ -32,11 +32,10 @@ class ProdController extends Controller
     {
 
         $product = new Products();
-        $product->title = $request->title;
+        $product->name = $request->name;
         $product->price = $request->price;
         $product->category = $request->category;;
         $product->description = $request->description;
-        $product->quantity = $request->quantity;
         $result = $product->save();
 
         if ($result) {
