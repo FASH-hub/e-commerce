@@ -10,7 +10,7 @@
 <body class="bg-gradient-to-r from-gray-100 to-blue-200">
     <div class="container">
         <h3>
-            E-COMMERCE
+            E-HOPPER SHOP
             <hr class="col-md-4">
         </h3>
       
