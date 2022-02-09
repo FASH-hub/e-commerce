@@ -9,9 +9,9 @@
 </head>
 <body class="bg-gradient-to-r from-gray-100 to-blue-200">
     <div class="container">
-        <h3>
+        <h3 class="text-center">
             E-HOPPER SHOP
-            <hr class="col-md-4">
+            <hr>
         </h3>
       
 
