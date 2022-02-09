@@ -28,8 +28,8 @@ class CartController extends Controller
     public function addCart(Request $request)
     {
         $cart = new Cart();
-        $cart->user_id = $request->user_id;
-        $cart->product_id = $request->product_id;
+        $cart->userId = $request->userId;
+        $cart->productId = $request->productId;
         $result = $cart->save();
 
         if ($result) {
@@ -66,8 +66,8 @@ class CartController extends Controller
     {
         $cart = new Cart();
         $cart = Cart::find($id);
-        $cart->user_id = $request->user_id;
-        $cart->product_id = $request->product_id;
+        $cart->userId = $request->userId;
+        $cart->productId = $request->productId;
         $result = $cart->save();
 
         if ($result) {
