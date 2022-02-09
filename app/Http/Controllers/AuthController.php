@@ -52,9 +52,9 @@ class AuthController extends Controller
         $result = $user->save();
 
         if ($result) {
-            return back()->with('success', 'You have been successfully registered');
+            return ('You have been successfully registered');
         } else {
-            return back()->with('fail', 'Registration has been failed');
+            return ('Registration has been failed');
         }
     }
 
