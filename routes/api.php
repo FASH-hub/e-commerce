@@ -26,16 +26,32 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 * Authentification routes (register, login, logout)
 * ----------------------------------------------------------------
 */
-Route::get('/login', [AuthController::class, 'login'])
+Route::get('/login', [AuthController::class, 'loginUser'])
     ->middleware('loggedIn');
-Route::get('/register', [AuthController::class, 'register'])
+
+Route::get('/display-users', [AuthController::class, 'displayUsers'])
     ->middleware('loggedIn');
+
+Route::get('/displayUserById/{id}', [AuthController::class, 'displayUserById'])
+    ->name('displayUserById');
+
 Route::post('/register-user', [AuthController::class, 'registerUser'])
     ->name('register-user');
+
 Route::post('/login-user', [AuthController::class, 'loginUser'])
     ->name('login-user');
-Route::get('/userPage', [AuthController::class, 'welcome'])->middleware('isLoggedIn');
-Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/logout', [AuthController::class, 'logout'])
+    ->name('logout');
+
+Route::delete('/delete-user/{id}', [AuthController::class, 'deleteUser'])
+    ->name('delete-user');
+
+Route::patch('/update-user/{id}', [CartController::class, 'updateUser'])
+    ->name('updateUser');
+
+Route::patch('/updatePsswd/{id}', [CartController::class, 'updatePsswd'])
+    ->name('updatePsswd');
 
 
 
@@ -46,6 +62,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 */
 
 Route::get('/allProduct', [ProdController::class, 'displayProduct']);
+Route::patch('/product/{id}', [ProdController::class, 'displayProductById']);
 Route::post('/addProduct', [ProdController::class, 'addProduct']);
 Route::patch('/updateProduct/{id}', [ProdController::class, 'updateProduct']);
 Route::delete('/deleteProduct/{id}', [ProdController::class, 'destroyProduct']);
@@ -58,7 +75,8 @@ Route::delete('/deleteProduct/{id}', [ProdController::class, 'destroyProduct']);
 * ----------------------------------------------------------------
 */
 
-Route::get('/cart', [CartController::class, 'displayCarts']);
+Route::get('/allCart', [CartController::class, 'displayCarts']);
+Route::patch('/cart/{id}', [ProdController::class, 'displayCartById']);
 Route::post('/cart', [CartController::class, 'addCart']);
 Route::patch('/cart/{id}', [CartController::class, 'updateCart']);
 Route::delete('/cart/{id}', [CartController::class, 'destroyCart']);

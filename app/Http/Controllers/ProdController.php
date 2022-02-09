@@ -21,6 +21,16 @@ class ProdController extends Controller
         return Products::all();
     }
 
+    /*
+    * ------------------------------------
+    * Displays product by id
+    * ------------------------------------
+    */
+    function displayProductById($id)
+    {
+        return Products::find($id);
+    }
+
 
 
     /*

@@ -10,16 +10,7 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    public function login()
-    {
-        return view('auth.login');
-    }
    
-    public function register()
-    {
-        return view('auth.register');
-    }
-
     /*
     * ------------------------------------
     * Displays all the users registered
@@ -28,6 +19,17 @@ class AuthController extends Controller
     function displayUsers()
     {
         return User::all();
+    }
+
+
+    /*
+    * ------------------------------
+    * Display  user by id
+    * ------------------------------
+    */
+    public function displayUserId($id)
+    {
+        return User::find($id);
     }
 
 
@@ -135,19 +137,26 @@ class AuthController extends Controller
         }
     }
 
+
     /*
     * ------------------------------
-    * Displays the welcome 
+    * Updates the password according to the user's received id.
     * ------------------------------
     */
-    public function welcome()
+    function updatePsswd(Request $request, $id)
     {
-        $data = array();
-        if (Session::has('userId')) {
-            $data = User::where('id', '=', Session::get('userId'))->first();
+        $psswd = $request->User::find($id);
+        $psswd->password = Hash::make($request->password);
+        $result = $psswd->save();
+        if ($result) {
+            return ["Your password has been updated successfully"];
+        } else {
+            return ["Your password failed to be updated"];
         }
-        return view('auth.dashboard', compact('data'));
     }
+
+
+
 
     /*
     * ------------------------------
@@ -159,7 +168,7 @@ class AuthController extends Controller
 
         if (Session::has('userId')) {
             Session::pull('userId');
-            return  redirect('login');
+            return  redirect('login-user');
         }
         
     }

@@ -14,6 +14,88 @@
             <hr class="col-md-4">
         </h3>
       
+
+        <main class="d-flex flex-row ">
+
+            <section class="m-5">
+              <h2>Authentification routes (register, login, logout)</h2>
+          
+            <ul class="list-group list-group-horizontal">
+                  <span>Route to register<span>
+                <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/register-user</li>
+
+                  <span>Route to login<span>
+                <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/login-user</li>
+
+                  <span>Route to list users<span>
+                <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/display-users</li>
+
+                  <span>Route to display user by id<span>
+                <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/displayUserById/id</li>
+
+                  <span>Route to delete user<span>
+               <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/delete-user/id</li>
+
+                 <span>Route to update user's details<span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/update-user/id</li>
+
+                 <span>Route to update user's password</span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/updatePsswd/id</li>
+
+                <span>Route to logout<span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/logout</li>
+            </ul>
+          </section>
+          <section class="m-5">
+            <h2>Products routes</h2>
+          
+            <ul class="list-group list-group-horizontal">
+                <span>Route to add products<span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/addProduct</li>
+
+                <span>Route display all products<span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/allProduct</li>
+
+                <span>Route to display product by id<span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/product/id</li>
+
+                <span>Route update product<span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/updateProduct/id</li>
+
+                <span>Route to delete product<span>
+             <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/deleteProduct/id</li>
+
+          </ul>
+          
+          </section>
+          <section class="m-5">
+            <h2>Carts routes</h2>
+          
+            <ul class="list-group list-group-horizontal">
+                <span>Route to add cart<span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/addCart</li>
+
+                <span>Route display all carts<span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/allCarts</li>
+
+                <span>Route to display cart by id<span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/cart/id</li>
+
+                <span>Route update cart<span>
+              <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/updateCart/id</li>
+
+                <span>Route to delete cart<span>
+             <li class="list-group-item">https://e-hopper-shop.herokuapp.com/api/deleteCart/id</li>
+
+          </ul>
+          
+          </section>
+        
+        
+          </main>
+          
+
+
+
         </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>

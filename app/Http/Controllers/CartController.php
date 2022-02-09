@@ -19,6 +19,15 @@ class CartController extends Controller
         return Cart::all();
     }
 
+    /*
+    * ------------------------------
+    * Displays cart by id
+    * ------------------------------
+    */
+    function displayCartById($id)
+    {
+        return Cart::find($id);
+    }
 
     /**
      * ----------------------------------
